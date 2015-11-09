@@ -94,6 +94,6 @@ class GedLine
       
   #Returns a String with the @level, @xref, @tag and @data values.
   def to_s
-    "Level #{@level}, Xref = @#{@xref}@, Tag = #{@tag}, Data = '#{@data ? @data.inject('') do |x,y| x + ' ' + y end : nil}'"
+    "Level #{@level}, Xref = @#{@xref}@, Tag = #{@tag}, Data = '#{@data ? @data.inject { |x,y| x + ' ' + y } : nil}'"
   end
 end

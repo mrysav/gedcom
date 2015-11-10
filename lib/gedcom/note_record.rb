@@ -31,9 +31,9 @@ class Note_record < GEDCOMBase
   attr_accessor :note_citation_record
   
   ClassTracker <<  :Note_record
-  
+
   def to_gedcom(level=0)
-    if @note_ref != nil
+    if defined? @note_ref || @note_ref != nil
       @this_level = [ [:xref, "NOTE", :note_ref] ]
       @sub_level =  [ #level + 1
                       [:conc, "CONC", :note],

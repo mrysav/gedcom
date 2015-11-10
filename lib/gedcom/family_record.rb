@@ -48,6 +48,10 @@ class Family_record < GEDCOMBase
   #new sets up the state engine arrays @this_level and @sub_level, which drive the to_gedcom method generating GEDCOM output.
   def initialize(*a)
     super(*a)
+    @family_ref = []
+    @wife_ref = []
+    @submitter_ref = []
+    @husband_ref = []
     @this_level = [ [:xref, "FAM", :family_ref] ]
     @sub_level =  [ #level + 1
                     [:xref, "HUSB", :husband_ref],

@@ -20,7 +20,7 @@ class Note_citation_record < GEDCOMBase
   ClassTracker <<  :Note_citation_record
   
   def to_gedcom(level=0)
-    if @note_ref != nil
+    if defined? @note_ref && @note_ref != nil
       @this_level = [ [:xref, "NOTE", :note_ref] ]
       @sub_level =  [#level 1
                       [:walk, nil,    :source_citation_record ],

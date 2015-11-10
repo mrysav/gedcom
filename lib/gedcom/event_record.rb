@@ -185,6 +185,8 @@ class Event_record < GEDCOMBase
   
   def initialize(*a)
     super(*a)
+    @event_type = []
+    @event_status = []
     @sub_level = [ #level + 1
                     [:print, "RESN", :restriction],
                     [:print, "TYPE", :event_descriptor],
@@ -215,7 +217,7 @@ class Event_record < GEDCOMBase
     tag = event_tag(@event_type[0].to_s)
     
 #    print "'#{@event_type}' '#{@event_descriptor}' => #{tag}\n"
-    if @event_status != nil && @event_status[0] != nil && @event_status[0][0]  != nil
+    if defined? @event_status && @event_status != nil && @event_status[0] != nil && @event_status[0][0]  != nil
       @this_level = [ [:print, tag, :event_status] ]
     else
       @this_level = [ [:nodata, tag, nil] ]
@@ -255,7 +257,6 @@ class Event_record < GEDCOMBase
     when "NATU" then tag
     when "EMIG" then tag
     when "IMMI" then tag
-    when "CENS" then tag
     when "PROB" then tag
     when "WILL" then tag
     when "GRAD" then tag

@@ -51,6 +51,11 @@ class Source_record < GEDCOMBase
 
   ClassTracker <<  :Source_record
   
+  def initialize(*a)
+      super(*a)
+      @source_ref = []
+  end
+  
   #to_gedcom sets up the state engine arrays @this_level and @sub_level, which drive the parent class to_gedcom method generating GEDCOM output.
   #There are two types of SOUR record, inline and reference, so this is done dynamically in to_gedcom rather than the initialize method.
   #Probably should be two classes, rather than this conditional.

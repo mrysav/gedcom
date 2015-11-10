@@ -45,6 +45,8 @@ class Association_record < GEDCOMBase
   #new sets up the state engine arrays @this_level and @sub_level, which drive the to_gedcom method generating GEDCOM output.
   def initialize(*a)
     super(*a)
+    @association_ref = []
+    @associated_record_tag = []
     @this_level = [ [:xref, "ASSO", :association_ref ] ]
     @sub_level =  [ #level 1
                     [:print, "TYPE",    :associated_record_tag ],
@@ -69,7 +71,7 @@ class Association_record < GEDCOMBase
     when 'REPO' then :repository
     when 'SOUR' then :source
     when 'SUBM' then :submitter
-    when 'SUBM' then :submission
+    when 'SUBN' then :submission
     else :individual #which will be the default individual index.
     end
     

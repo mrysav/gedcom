@@ -43,6 +43,11 @@ class Multimedia_citation_record < GEDCOMBase
 
   ClassTracker <<  :Multimedia_citation_record
   
+  def initialize(*a)
+      super(*a)
+      @multimedia_ref = []
+  end
+  
   def to_gedcom(level=0)
     if @multimedia_ref != nil
       @this_level = [ [:xref, "OBJE", :multimedia_ref] ]

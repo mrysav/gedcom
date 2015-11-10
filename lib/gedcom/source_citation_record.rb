@@ -50,11 +50,16 @@ class Source_citation_record < GEDCOMBase
 
   ClassTracker <<  :Source_citation_record
   
+  def initialize(*a)
+      super(*a)
+      @source_ref = []
+  end
+  
   #to_gedcom sets up the state engine arrays @this_level and @sub_level, which drive the parent class to_gedcom method generating GEDCOM output.
   #There are two types of SOUR record, inline and reference, so this is done dynamically in to_gedcom rather than the initialize method.
   #Probably should be two classes, rather than this conditional.
   def to_gedcom(level=0)
-    if(@source_ref != nil)
+    if(@source_ref != nil) then
       @this_level = [ [:xref, "SOUR", :source_ref] ]
       @sub_level =  [  #level + 1
                       [:print, "PAGE", :page],
@@ -64,11 +69,12 @@ class Source_citation_record < GEDCOMBase
                       [:walk, nil,  :multimedia_citation_record],
                       [:walk, nil,  :note_citation_record],
                     ]
-     elsif @source_record != nil
+    elsif @source_record != nil
        @this_level = [ [:walk, nil,  :source_record] ]
        @sub_level =  []
-     end
-     super(level)
+    end
+    
+    super(level)
   end
 end
 

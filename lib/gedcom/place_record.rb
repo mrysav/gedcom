@@ -27,6 +27,11 @@ class Place_record < GEDCOMBase
 
   ClassTracker <<  :Place_record
   
+  def initialize(*a)
+      super(*a)
+      @place_value = []
+  end
+  
   def to_gedcom(level=0)
     if @place_value != nil
       @this_level = [  [:print, "PLAC", :place_value] ]

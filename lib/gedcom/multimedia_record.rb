@@ -76,6 +76,11 @@ class Multimedia_record < GEDCOMBase
   
   ClassTracker <<  :Multimedia_record
   
+  def initialize(*a)
+      super(*a)
+      @multimedia_ref = []
+  end
+  
   def to_gedcom(level=0)
     
     if @multimedia_ref != nil 

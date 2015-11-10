@@ -32,8 +32,13 @@ class Note_record < GEDCOMBase
   
   ClassTracker <<  :Note_record
 
+  def initialize(*a)
+      super(*a)
+      @note_ref = []
+  end
+
   def to_gedcom(level=0)
-    if defined? @note_ref || @note_ref != nil
+    if @note_ref != nil
       @this_level = [ [:xref, "NOTE", :note_ref] ]
       @sub_level =  [ #level + 1
                       [:conc, "CONC", :note],

@@ -900,7 +900,7 @@ class GedcomParser
   #Takes a lineno for reporting errors 
   #and the line (as a String) to be tokenised and parsed.
   def parse(lineno, line)
-    tokens = GedLine.new *line.chomp.strip.split(/\s/)
+    tokens = GedLine.new(*line.chomp.strip.split(/\s/))
     parse_line(lineno, tokens)
   end
   

@@ -1,3 +1,8 @@
+=== 0.9.4 / 2015-11-19
+
+* Stopped using Hoe for deployment
+* Cleaned up syntax errors
+
 === 0.9.3 / 2013-01-10
 
 * transcription of code from original C source base.

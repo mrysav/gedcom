@@ -6,9 +6,7 @@
 
 == DESCRIPTION:
 
-A Ruby GEDCOM text file parser and producer, that produces a tree of objects from each of the
-GEDCOM file types and subtypes. Understands the full GEDCOM 5.5 grammar, and will handle 
-unknown tags hierarchies as a Note class.
+A Ruby GEDCOM text file parser and producer, that produces a tree of objects from each of the GEDCOM file types and subtypes. Understands the full GEDCOM 5.5 grammar, and will handle unknown tags hierarchies as a Note class.
  
  
 == FEATURES/PROBLEMS:

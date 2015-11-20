@@ -3,7 +3,7 @@
 #Or 1.9 version at
 #!/usr/local/bin/ruby
 require 'rubygems'
-require 'lib/gedcom.rb'
+require '../lib/gedcom.rb'
 require 'versioncheck'
 
 
@@ -14,9 +14,9 @@ require 'versioncheck'
 
 puts "parse TGC551LF.ged"
 if VersionCheck.rubyversion.have_at_least_version?(1,9)
-  g = Gedcom.file("test_data/TGC551LF.ged", "r:ASCII-8BIT") #OK with LF line endings.
+  g = Gedcom.file("../test_data/TGC551LF.ged", "r:ASCII-8BIT") #OK with LF line endings.
 else
-  g = Gedcom.file("test_data/TGC551LF.ged", "r") #OK with LF line endings.
+  g = Gedcom.file("../test_data/TGC551LF.ged", "r") #OK with LF line endings.
 end
 g.transmissions[0].summary
 puts 
@@ -41,11 +41,11 @@ puts
 #Note Order of TAGS at the same level may be different
 #Note User TAGS are output as Notes.
 if VersionCheck.rubyversion.have_at_least_version?(1,9)
-  File.open( "test_data/TGC551LF.out", "w:ASCII-8BIT") do |file|
+  File.open( "../test_data/TGC551LF.out", "w:ASCII-8BIT") do |file|
     file.print g.transmissions[0].to_gedcom
   end
 else
-  File.open( "test_data/TGC551LF.out", "w") do |file|
+  File.open( "../test_data/TGC551LF.out", "w") do |file|
     file.print g.transmissions[0].to_gedcom
   end
 end
